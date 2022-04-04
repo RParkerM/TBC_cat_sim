@@ -123,6 +123,7 @@ buffs_1 = dbc.Col(
     [dbc.Collapse([html.H5('Consumables'),
      dbc.Checklist(
          options=[{'label': 'Elixir of Major Agility', 'value': 'agi_elixir'},
+                  {'label': 'Elixir of Demonslaying', 'value': 'demonslaying_elixir'},
                   {'label': 'Elixir of Draenic Wisdom', 'value': 'draenic'},
                   {'label': 'Warp Burger / Grilled Mudfish', 'value': 'food'},
                   {'label': 'Scroll of Agility V', 'value': 'scroll_agi'},
@@ -1241,6 +1242,7 @@ def apply_buffs(
         raw_ap_unbuffed + 2 * buffed_strength + buffed_agi
         + 264 * ('might' in raid_buffs) + bshout_ap
         + 125 * ('trueshot_aura' in raid_buffs)
+        + 265 * ('demonslaying_elixir' in consumables)
     )
     added_crit_rating = (
         20 * ('agi_elixir' in consumables)
